@@ -12,7 +12,7 @@ const app = express();
 
 
 var corsOptions = {
-  origin: "http://localhost:8081"
+  origin: "http://localhost:80"
 };
 
 app.use(cors(corsOptions));
@@ -29,6 +29,8 @@ app.get("/", (req, res) => {
 });
 
 app.post("/login", auth.login);
+app.post("/register", auth.register);
+
 
 //Get routes from routes folder with auth
 app.use('/', authenticateToken, require("./app/routes/api"));
